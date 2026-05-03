@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/ui/icon";
+import { QRCodeSVG } from "qrcode.react";
+
+const VCARD = `BEGIN:VCARD\nVERSION:3.0\nFN:Сергей Смирнов\nORG:Надёжный риелтор\nTEL;TYPE=CELL:+79000000000\nEMAIL:smirnov@realtor.ru\nADR:;;г. Екатеринбург;;;;\nURL:https://smirnov-realtor.ru\nEND:VCARD`;
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/190f87c1-2bd1-4c13-b5a9-eb3a77869a47/bucket/eda8002c-cdb1-4bd6-a4e1-9a9e855fa815.jpg";
 const LOGO_IMG = "https://cdn.poehali.dev/projects/190f87c1-2bd1-4c13-b5a9-eb3a77869a47/bucket/7ba0c08e-35ba-43e0-9c00-988a8d3a5ffa.png";
@@ -149,8 +152,9 @@ export default function Index() {
       {/* ── NAVBAR ─────────────────────────────────────────── */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "nav-glass shadow-md" : "bg-transparent"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between h-16 md:h-20">
-          <a href="#top" className="flex items-center">
-            <img src={LOGO_IMG} alt="Сергей Смирнов — Надёжный риелтор" className="h-20 md:h-24 w-auto object-contain" style={{ mixBlendMode: "screen", borderRadius: "16px" }} />
+          <a href="#top" className="flex flex-col leading-tight">
+            <span className="font-cormorant text-xl md:text-2xl font-bold" style={{ color: "#daa520" }}>Сергей Смирнов</span>
+            <span className="text-[10px] md:text-xs font-semibold uppercase tracking-widest" style={{ color: "rgba(218,165,32,0.7)" }}>Надёжный риелтор · Екатеринбург</span>
           </a>
 
           <ul className="hidden md:flex items-center gap-6 lg:gap-8">
@@ -255,8 +259,8 @@ export default function Index() {
               {/* Decorative gold glow under photo */}
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-32 rounded-full blur-3xl opacity-40"
                 style={{ background: "radial-gradient(ellipse, #daa520 0%, #f0c040 40%, transparent 70%)" }} />
-              <div className="relative w-80 md:w-[420px]" style={{ filter: "drop-shadow(0 24px 48px rgba(218,165,32,0.35))" }}>
-                <img src={HERO_IMG} alt="Сергей Смирнов — риелтор" className="w-full h-auto object-contain" style={{ maxHeight: "580px", mixBlendMode: "multiply", borderRadius: "24px" }} />
+              <div className="relative w-80 md:w-[420px]" style={{ filter: "drop-shadow(0 24px 48px rgba(218,165,32,0.5))" }}>
+                <img src={HERO_IMG} alt="Сергей Смирнов — риелтор" className="w-full h-auto object-contain" style={{ maxHeight: "580px", mixBlendMode: "multiply", borderRadius: "28px" }} />
               </div>
 
               <div className="absolute -right-4 -top-4 float-anim">
@@ -614,11 +618,34 @@ export default function Index() {
                 style={{ background: "#229ED9" }}>
                 <Icon name="Send" size={16} /> Telegram
               </a>
-              <a href="viber://chat?number=79000000000" target="_blank" rel="noopener noreferrer"
+              <a href="https://vk.com/smirnov_realtor" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold text-white hover:scale-105 transition-transform"
-                style={{ background: "#7360F2" }}>
-                <Icon name="Phone" size={16} /> Viber
+                style={{ background: "#0077FF" }}>
+                <Icon name="Users" size={16} /> ВКонтакте
               </a>
+              <a href="https://ya.ru/chat/smirnov_realtor" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold text-white hover:scale-105 transition-transform"
+                style={{ background: "#FC3F1D" }}>
+                <Icon name="MessageSquare" size={16} /> Яндекс Мессенджер
+              </a>
+              <a href="https://max.ru/smirnov_realtor" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold text-white hover:scale-105 transition-transform"
+                style={{ background: "#6C2BD9" }}>
+                <Icon name="Zap" size={16} /> MAX
+              </a>
+            </div>
+
+            <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-5 rounded-2xl p-5"
+              style={{ background: "rgba(218,165,32,0.08)", border: "1px solid rgba(218,165,32,0.2)" }}>
+              <div className="rounded-xl overflow-hidden p-2 bg-white shadow-md flex-shrink-0">
+                <QRCodeSVG value={VCARD} size={110} fgColor="#1a1209" bgColor="#ffffff" />
+              </div>
+              <div>
+                <p className="font-semibold text-sm mb-1" style={{ color: "#1a1209" }}>Добавить контакт в телефон</p>
+                <p className="text-xs leading-relaxed" style={{ color: "rgba(0,0,0,0.55)" }}>
+                  Наведите камеру на QR-код — визитка с контактами автоматически сохранится в ваш телефон. Быстро и удобно.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -633,27 +660,40 @@ export default function Index() {
       </section>
 
       {/* ── FOOTER ─────────────────────────────────────────── */}
-      <footer className="py-8" style={{ background: "#1a1209", borderTop: "1px solid rgba(218,165,32,0.2)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div>
-            <img src={LOGO_IMG} alt="Сергей Смирнов" className="h-16 w-auto object-contain hover:opacity-100 transition-opacity" style={{ mixBlendMode: "screen", opacity: 0.9, borderRadius: "14px" }} />
+      <footer className="py-10" style={{ background: "#1a1209", borderTop: "1px solid rgba(218,165,32,0.2)" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col gap-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <a href="/" className="flex flex-col leading-tight">
+              <span className="font-cormorant text-xl font-bold" style={{ color: "#daa520" }}>Сергей Смирнов</span>
+              <span className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: "rgba(218,165,32,0.55)" }}>Надёжный риелтор · Екатеринбург</span>
+            </a>
+            <div className="text-xs text-center" style={{ color: "rgba(255,255,255,0.4)" }}>
+              © {new Date().getFullYear()} Сергей Смирнов. Все права защищены.
+            </div>
+            <div className="flex gap-4">
+              {[
+                { href: "https://wa.me/79000000000", icon: "MessageCircle" },
+                { href: "https://t.me/smirnov_realtor", icon: "Send" },
+                { href: "https://vk.com/smirnov_realtor", icon: "Users" },
+                { href: "tel:+79000000000", icon: "Phone" },
+              ].map((m) => (
+                <a key={m.href} href={m.href} target="_blank" rel="noopener noreferrer"
+                  className="hover:scale-110 transition-transform" style={{ color: "rgba(255,255,255,0.4)" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#daa520")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
+                  <Icon name={m.icon} size={20} />
+                </a>
+              ))}
+            </div>
           </div>
-          <div className="text-xs text-center" style={{ color: "rgba(255,255,255,0.4)" }}>
-            © {new Date().getFullYear()} Сергей Смирнов. Все права защищены.
-          </div>
-          <div className="flex gap-4">
-            {[
-              { href: "https://wa.me/79000000000", icon: "MessageCircle" },
-              { href: "https://t.me/smirnov_realtor", icon: "Send" },
-              { href: "tel:+79000000000", icon: "Phone" },
-            ].map((m) => (
-              <a key={m.href} href={m.href} target="_blank" rel="noopener noreferrer"
-                className="hover:scale-110 transition-transform" style={{ color: "rgba(255,255,255,0.4)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#daa520")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
-                <Icon name={m.icon} size={20} />
-              </a>
-            ))}
+          <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-2" style={{ borderTop: "1px solid rgba(218,165,32,0.1)" }}>
+            <a href="/privacy" className="text-xs hover:opacity-80 transition-opacity" style={{ color: "rgba(255,255,255,0.35)" }}>
+              Политика конфиденциальности
+            </a>
+            <span style={{ color: "rgba(255,255,255,0.2)" }}>·</span>
+            <a href="/consent" className="text-xs hover:opacity-80 transition-opacity" style={{ color: "rgba(255,255,255,0.35)" }}>
+              Согласие на обработку персональных данных
+            </a>
           </div>
         </div>
       </footer>
