@@ -150,7 +150,7 @@ export default function Index() {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "nav-glass shadow-md" : "bg-transparent"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between h-16 md:h-20">
           <a href="#top" className="flex items-center">
-            <img src={LOGO_IMG} alt="Сергей Смирнов — Надёжный риелтор" className="h-16 md:h-20 w-auto object-contain" style={{ mixBlendMode: "screen" }} />
+            <img src={LOGO_IMG} alt="Сергей Смирнов — Надёжный риелтор" className="h-20 md:h-24 w-auto object-contain" style={{ mixBlendMode: "screen", borderRadius: "16px" }} />
           </a>
 
           <ul className="hidden md:flex items-center gap-6 lg:gap-8">
@@ -255,8 +255,8 @@ export default function Index() {
               {/* Decorative gold glow under photo */}
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-32 rounded-full blur-3xl opacity-40"
                 style={{ background: "radial-gradient(ellipse, #daa520 0%, #f0c040 40%, transparent 70%)" }} />
-              <div className="relative w-72 md:w-96" style={{ filter: "drop-shadow(0 20px 40px rgba(218,165,32,0.35))" }}>
-                <img src={HERO_IMG} alt="Сергей Смирнов — риелтор" className="w-full h-auto object-contain" style={{ maxHeight: "500px", mixBlendMode: "multiply" }} />
+              <div className="relative w-80 md:w-[420px]" style={{ filter: "drop-shadow(0 24px 48px rgba(218,165,32,0.35))" }}>
+                <img src={HERO_IMG} alt="Сергей Смирнов — риелтор" className="w-full h-auto object-contain" style={{ maxHeight: "580px", mixBlendMode: "multiply", borderRadius: "24px" }} />
               </div>
 
               <div className="absolute -right-4 -top-4 float-anim">
@@ -636,7 +636,7 @@ export default function Index() {
       <footer className="py-8" style={{ background: "#1a1209", borderTop: "1px solid rgba(218,165,32,0.2)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div>
-            <img src={LOGO_IMG} alt="Сергей Смирнов" className="h-14 w-auto object-contain hover:opacity-100 transition-opacity" style={{ mixBlendMode: "screen", opacity: 0.9 }} />
+            <img src={LOGO_IMG} alt="Сергей Смирнов" className="h-16 w-auto object-contain hover:opacity-100 transition-opacity" style={{ mixBlendMode: "screen", opacity: 0.9, borderRadius: "14px" }} />
           </div>
           <div className="text-xs text-center" style={{ color: "rgba(255,255,255,0.4)" }}>
             © {new Date().getFullYear()} Сергей Смирнов. Все права защищены.
