@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/ui/icon";
 
-const HERO_IMG = "https://cdn.poehali.dev/projects/190f87c1-2bd1-4c13-b5a9-eb3a77869a47/files/ed542897-6676-4a31-9bbb-062bbc73362a.jpg";
+const HERO_IMG = "https://cdn.poehali.dev/projects/190f87c1-2bd1-4c13-b5a9-eb3a77869a47/bucket/eda8002c-cdb1-4bd6-a4e1-9a9e855fa815.jpg";
+const LOGO_IMG = "https://cdn.poehali.dev/projects/190f87c1-2bd1-4c13-b5a9-eb3a77869a47/bucket/7ba0c08e-35ba-43e0-9c00-988a8d3a5ffa.png";
 const INTERIOR_IMG = "https://cdn.poehali.dev/projects/190f87c1-2bd1-4c13-b5a9-eb3a77869a47/files/b836645c-96c6-4e24-bd84-91d88b0850c5.jpg";
 
 /* ── QUIZ CONFIG ───────────────────────────────────────── */
@@ -148,9 +149,8 @@ export default function Index() {
       {/* ── NAVBAR ─────────────────────────────────────────── */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "nav-glass shadow-md" : "bg-transparent"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between h-16 md:h-20">
-          <a href="#top" className="flex flex-col leading-none">
-            <span className="font-cormorant text-xl md:text-2xl font-bold gold-text tracking-wide">Сергей Смирнов</span>
-            <span className="text-[10px] md:text-xs tracking-[0.18em] text-gold-600 uppercase font-montserrat">Риелтор · Екатеринбург</span>
+          <a href="#top" className="flex items-center">
+            <img src={LOGO_IMG} alt="Сергей Смирнов — Надёжный риелтор" className="h-12 md:h-14 w-auto object-contain" />
           </a>
 
           <ul className="hidden md:flex items-center gap-6 lg:gap-8">
@@ -252,15 +252,11 @@ export default function Index() {
 
           <div className="relative flex justify-center md:justify-end fade-in-up-delay-2">
             <div className="relative">
-              <div className="absolute -inset-3 rounded-3xl opacity-50"
-                style={{ background: "linear-gradient(135deg, #daa520, #f0c040, #a07810)" }} />
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl w-72 h-96 md:w-80 md:h-[440px]">
-                <img src={HERO_IMG} alt="Сергей Смирнов — риелтор" className="w-full h-full object-cover" />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(26,18,9,0.55) 0%, transparent 60%)" }} />
-                <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-                  <div className="font-cormorant text-2xl font-bold">Сергей Смирнов</div>
-                  <div className="text-xs text-gold-300 tracking-wider">Эксперт по недвижимости</div>
-                </div>
+              {/* Decorative gold glow under photo */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-32 rounded-full blur-3xl opacity-40"
+                style={{ background: "radial-gradient(ellipse, #daa520 0%, #f0c040 40%, transparent 70%)" }} />
+              <div className="relative w-72 md:w-96" style={{ filter: "drop-shadow(0 20px 40px rgba(218,165,32,0.25))" }}>
+                <img src={HERO_IMG} alt="Сергей Смирнов — риелтор" className="w-full h-auto object-contain" style={{ maxHeight: "500px" }} />
               </div>
 
               <div className="absolute -right-4 -top-4 float-anim">
@@ -640,8 +636,7 @@ export default function Index() {
       <footer className="py-8" style={{ background: "#1a1209", borderTop: "1px solid rgba(218,165,32,0.2)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div>
-            <div className="font-cormorant text-xl font-bold gold-text">Сергей Смирнов</div>
-            <div className="text-xs tracking-wider" style={{ color: "rgba(255,255,255,0.4)" }}>Риелтор · Екатеринбург · с 2015 года</div>
+            <img src={LOGO_IMG} alt="Сергей Смирнов" className="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity" />
           </div>
           <div className="text-xs text-center" style={{ color: "rgba(255,255,255,0.4)" }}>
             © {new Date().getFullYear()} Сергей Смирнов. Все права защищены.
