@@ -34,14 +34,20 @@
 
     --radius: 0.75rem;
 
-    /* Gold palette */
-    --gold-100: #fdf8ee;
-    --gold-200: #f7e9c3;
-    --gold-300: #efd08a;
-    --gold-400: #daa520;
-    --gold-500: #c9941a;
-    --gold-600: #a07810;
-    --gold-dark: #1a1209;
+    /* Gold palette — luxury light */
+    --gold-100: #fffdf8;
+    --gold-200: #fdf3dc;
+    --gold-300: #f5d98a;
+    --gold-400: #c8960c;
+    --gold-500: #b07d08;
+    --gold-600: #8a6005;
+    --gold-dark: #0f0a00;
+
+    /* Marble palette */
+    --marble-bg: #fafaf8;
+    --marble-light: #f5f3ee;
+    --marble-mid: #ede8df;
+    --cream: #fdf8f0;
   }
 }
 
@@ -201,10 +207,17 @@
 
 /* Nav glass */
 .nav-glass {
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  background: rgba(253, 248, 238, 0.92);
-  border-bottom: 1px solid rgba(218, 165, 32, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 253, 248, 0.96);
+  border-bottom: 1px solid rgba(200, 150, 12, 0.2);
+  box-shadow: 0 4px 24px rgba(200, 150, 12, 0.08);
+}
+
+/* Marble texture overlay */
+.marble-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg width='400' height='400' viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
 }
 
 /* Ornamental */
